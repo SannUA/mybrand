@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainPage from './containers/MainPage/MainPage';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  let mainDiv = document.getElementById('root');
+  let userMetric = document.documentElement;
+  mainDiv.style.height = userMetric.clientHeight > 823 ? 823 + 'px' : userMetric.clientHeight + 'px'
+  mainDiv.style.width = userMetric.clientWidth + 'px'
+  console.log(userMetric.clientHeight, userMetric.clientWidth)
+  return ( 
+  <React.StrictMode>
+    <div className='wrapper'>
+      <MainPage />
     </div>
+  </React.StrictMode>
   );
 }
 

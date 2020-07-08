@@ -1,0 +1,18 @@
+
+.backgroundMainPage {
+    background-image: url('../../assets/svg/IMG_main__page.svg');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+  }
+  
+  .backgroundGrayImage {
+    background-image: url('../../assets/svg/Background__image__gray.svg');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+  }
