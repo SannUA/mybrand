@@ -10,7 +10,6 @@ import FooterAccountPic from './FooterPics/FooterAccountPic';
 
 
 function Footer(props) {
-    console.log(props.activeFooterIcon)
     
     return (
         <div className='footer'>

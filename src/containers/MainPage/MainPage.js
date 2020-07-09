@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainMenu from '../../components/MainMenu/MainMenu';
 import SearchingPage from '../../components/SearchingPage/SearchingPage'
+import CostumesPage from '../../components/CostumesPage/CostumesPageForHer/CostumesPageForHer';
 
 
 class MainPage extends React.Component {
@@ -15,7 +16,7 @@ class MainPage extends React.Component {
     }
 
 
-    
+
     FooterOnClickHandler(e) {
         if (e.target.firstChild && e.target.nodeName !== 'SPAN') {
             console.log(e.target.firstChild.alt)
@@ -88,6 +89,7 @@ class MainPage extends React.Component {
             <Switch>
             <Route exact path='/' component={MainMenu}/>
             <Route path='/searching' component={SearchingPage}/>
+            <Route path='/searching_costumes' component={CostumesPage} />
             </Switch>
             <div onClickCapture={(e) => this.FooterOnClickHandler(e)}>
                 <Footer activeFooterIcon={this.state.activeFooterButton}/>

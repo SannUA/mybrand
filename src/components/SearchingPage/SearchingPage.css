@@ -1,0 +1,60 @@
+.searchingPic {
+    margin-left: 5%;
+}
+.searchingInput {
+    background: transparent;
+    border: none;
+    font-family: 'Franklin Gothic Medium Cond';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6F6F6F;
+    opacity: 0.4;
+    margin-left: 2%;
+    width: 80%;
+}
+.searchingInput:focus {
+    position: relative;
+    z-index: 50;
+    outline: none;
+    border: solid #6F6F6F 1px;
+    border-radius: 5px;
+}
+
+.centerLine {
+    left: 50%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+.centerBlockContent {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium Cond';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 29px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666666;
+    transition: ease-in font-size 2s;
+
+}
+.centerBlock {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    transition: ease-in top 2s;
+    
+}
+
+p{
+    cursor: pointer;
+}
