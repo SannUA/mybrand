@@ -1,10 +1,10 @@
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
     width: 100%;
-    height: 145px;
+    height: 80px;
+    background: linear-gradient(179.73deg, rgba(196, 196, 196, 0) 0.83%, #DCE0E0 99.16%);
 }
 
 .each {

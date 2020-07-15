@@ -12,7 +12,7 @@ import FooterAccountPic from './FooterPics/FooterAccountPic';
 function Footer(props) {
     
     return (
-        <div className='footer'>
+        <div className='footer' id='footer'>
             <div className='picContainer'>
               <Link to='/'><FooterHomePic activeFooterButton = {props.activeFooterIcon}/></Link> 
               <Link to='/searching'><FooterSearchingPic activeFooterButton = {props.activeFooterIcon}/></Link>

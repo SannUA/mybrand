@@ -7,7 +7,8 @@ import Footer from '../../components/Footer/Footer';
 import MainMenu from '../../components/MainMenu/MainMenu';
 import SearchingPage from '../../components/SearchingPage/SearchingPage'
 import CostumesPage from '../../components/CostumesPage/CostumesPageForHer/CostumesPageForHer';
-
+import imgHomePageUrl from '../../assets/svg/IMG_main__page.svg'
+import imgSearchingPageUrl from '../../assets/svg/Background__image__gray.svg'
 
 class MainPage extends React.Component {
     state = {
@@ -76,12 +77,14 @@ class MainPage extends React.Component {
         }
 
     }
+    
+
     render(){
-        let backgroundImage
+        let backgroundImage = document.getElementById('root')
         if (this.state.backgroundImg === 0) {
-            backgroundImage ='backgroundMainPage'
+            backgroundImage.style.backgroundImage = 'url('+ imgHomePageUrl + ')'
         } else {
-            backgroundImage =' backgroundGrayImage'
+            backgroundImage.style.backgroundImage = 'url('+ imgSearchingPageUrl + ')'
         }
         return(
             <div className={backgroundImage}>

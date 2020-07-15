@@ -1,0 +1,19 @@
+.fixedHeaderBox {
+    position: fixed;
+    top:0;
+    left:0;
+    background: linear-gradient(180deg, #DBDFDF 0%, rgba(196, 196, 196, 0) 100%);
+    height: 116px;
+    z-index: 200;
+}
+
+.headerElementArrowBach {
+    position: absolute;
+    top: 45px;
+    left: 31px
+}
+.headerElementFilter {
+    position: absolute;
+    top: 43px;
+    right: 33px
+}

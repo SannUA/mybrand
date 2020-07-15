@@ -10,7 +10,7 @@ body {
 #root {
   max-width: 425px;
   max-height: 823px;
-
   margin: 0 auto;
+  background-size: cover;
 }
 
