@@ -12,7 +12,7 @@ class SearchingPage extends React.Component {
 
     state = {
         chosenSex: null,
-        inputText: 'ПОИСК'
+        inputText: ''
     }
     showList(e) {
         e.target.style.color = '#FF588B'
@@ -30,14 +30,14 @@ class SearchingPage extends React.Component {
             el.children[1].children[0].style.color = '#6F6F6F';
             el.children[1].children[0].style.border = 'none';
             if (this.state.chosenSex === null) {
-                setTimeout(() => {this.setState({chosenSex: 0})}, 2000) 
+                setTimeout(() => {this.setState({chosenSex: 0})}, 1000) 
             } else this.setState({chosenSex: 0})
            
         } else {
             el.children[0].children[0].style.color = '#6F6F6F';
             el.children[0].children[0].style.border = 'none';
             if (this.state.chosenSex === null){
-                setTimeout(() => {this.setState({chosenSex: 1})}, 2000)
+                setTimeout(() => {this.setState({chosenSex: 1})}, 1000)
             } else this.setState({chosenSex: 1})
             
         }
@@ -57,6 +57,7 @@ class SearchingPage extends React.Component {
                value={this.state.inputText} 
                className='searchingInput' 
                id ='searchingInput'
+               placeholder='ПОИСК'
                onChange={(e) => {this.setState({inputText: e.target.value})}}></input>
             <div className='centerBlock' id='centerBlock'>
                 <div className='centerBlockContent'><p onClick={(e) => {this.showList(e)}}>ДЛЯ НЕЕ</p></div>

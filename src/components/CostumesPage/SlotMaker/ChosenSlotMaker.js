@@ -5,64 +5,101 @@ import addToFavoriteButton from '../../../assets/svg/AddToFavoriteButton.svg';
 
 import arrowRight from '../../../assets/svg/Arrow__right.svg'
 import arrowLeft from '../../../assets/svg/Arrow__left.svg'
+import ChosenSlotBuyingPage from './ChosenSlotBuyingPage';
 
-function ChosenSlotMaker(props) {
-    let positionOfImg = 'imgBlockRight';
-    let positionOfText = 'chosenTextBlockLeft'
-    if (props.positionImg === 'left') {
-        positionOfImg = 'imgBlockLeft';
-        positionOfText = 'chosenTextBlockRight'
+class ChosenSlotMaker extends React.Component {
+
+    state = {
+        chosenSlotId: null
     }
-    for(let el of props.arrOfId){
-        if(el !== props.id) {
-            document.getElementById(el).style.display = 'none'
-            
+
+    
+    
+    
+    render() {
+        const chosenSlotWantButtonClickedHandler = () => {
+            document.getElementById(`${this.props.id}Img`).style.width = '35%';
+            document.getElementById(`${this.props.id}Img`).style.left = '0'
+            document.getElementById(`${this.props.id}Img`).style.top = 'unset'
+            document.getElementById(`${this.props.id}Img`).style.bottom = '80px';
+            document.getElementById(`${this.props.id}Img`).style.clip = `rect(auto  auto auto auto)`
+            this.setState({chosenSlotId: this.props.id})
         }
-    }
+
+            let positionOfImg = 'imgBlockRight';
+            let positionOfText = 'chosenTextBlockLeft'
+            if (this.props.positionImg === 'left') {
+            positionOfImg = 'imgBlockLeft';
+            positionOfText = 'chosenTextBlockRight'
+            }
+        if (!this.state.chosenSlotId) {
     setTimeout(() => {
-        document.getElementById(`${props.id}Img`).style.position = 'absolute'
-        document.getElementById(`${props.id}Img`).style.top = '100px'
-        document.getElementById(`${props.id}Img`).style.left = 'unset'
-        document.getElementById(`${props.id}Img`).style.width = '100%'
+        let chosenImg = document.getElementById(`${this.props.id}Img`);
+        chosenImg.style.position = 'absolute'
+        chosenImg.style.top = '100px'
+        chosenImg.style.left = 'unset'
+        chosenImg.style.width = '100%'
         
-        if (props.positionImg === 'left') {
-            document.getElementById(`${props.id}Img`).style.left = '-25%'
+        
+        if (this.props.positionImg === 'left') {
+            chosenImg.style.left = '-25%'
+            setTimeout(() => {
+                console.log(chosenImg.width)
+                let neededWidth = chosenImg.width - (chosenImg.width * 0.13)
+                chosenImg.style.clip = `rect(auto ${neededWidth}px auto auto )`
+            }, 1000)
+            ;
         } else {
             setTimeout(() => {
-                document.getElementById(`${props.id}Img`).style.right = '-15%'
+                chosenImg.style.right = '-15%'
+            })
+            setTimeout(() => {
+                let neededWidth = chosenImg.width * 0.23
+                chosenImg.style.clip = `rect(auto  auto auto ${neededWidth}px)`
             }, 1000)
         }
-        
-        // setTimeout(() => {
-        //     // document.getElementById(`${props.id}Img`).style.top = '50px'
-        //     // document.getElementById(`${props.id}Img`).style.left = '0px' 
-        //     document.getElementById(`${props.id}Img`).style.right = '-15%'
-        //     document.getElementById(`${props.id}Img`).style.height = '100%'
-        // }, 1100)
     }) 
-    return (
-        <div className='costumesContentBox'>
-            
-            <img src={arrowLeft} alt='arrowLeft' className='arrowLeftUpCorner' />
-            
-            <img src={arrowRight} alt='arrowRight' className='arrowRightDownCorner' />
+        }
+        let content
+        if (this.state.chosenSlotId) {
+            content = <ChosenSlotBuyingPage />
+        } else {
+            content = 
+            <React.Fragment>
+                <img src={arrowLeft} alt='arrowLeft' className='arrowLeftUpCorner' />
+                    
+                    <img src={arrowRight} alt='arrowRight' className='arrowRightDownCorner' />
             <div className={positionOfText}>
-                <p className='firstString'>КОСТЮМ</p>
-                <p className='secondString'>З НІЖНОГО ШИФОНУ</p>
-                <p className='thirdString'>₴ 2560 <img src={addToFavoriteButton} 
-                                               alt='addToFavoriteButton' 
-                                               style={{marginLeft: '25%'}}/></p>
-                <div className='wantButton'><span className='addToFavoriteButtonText' >ХОЧУ</span></div>
+            <p className='firstString'>КОСТЮМ</p>
+            <p className='secondString'>З НІЖНОГО ШИФОНУ</p>
+            <p className='thirdString'>₴ 2560 <img src={addToFavoriteButton} 
+                                           alt='addToFavoriteButton' 
+                                           style={{marginLeft: '15%'}}/></p>
+            <div className='wantButton' onClick={chosenSlotWantButtonClickedHandler}><span className='addToFavoriteButtonText' >ХОЧУ</span></div>
 
-            </div>
-            
-                <img src={costumeForHer} alt='costumeForHer' 
-                                         className={positionOfImg}
-                                         id={`${props.id}Img`}
-                                         style={{top: props.coords.top + 'px', left: props.coords.left + 'px'}}/>
-            
         </div>
-    )
+            </React.Fragment>
+                    
+        }
+        return (
+            
+                <div className='costumesContentBox'>
+                    
+                    
+                    
+                    {content}
+                    
+                        <img src={costumeForHer} alt='costumeForHer' 
+                                                 className={positionOfImg}
+                                                 id={`${this.props.id}Img`}
+                                                 style={{top: this.props.coords.top + 'px', left: this.props.coords.left + 'px'}}/>
+                    
+                </div>
+            
+        )
+    }
+    
+
     
     
 }

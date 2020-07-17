@@ -44,14 +44,14 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #666666;
-    transition: ease-in font-size 2s;
+    transition: ease-in font-size 1s;
 
 }
 .centerBlock {
     position: absolute;
     width: 100%;
     top: 45%;
-    transition: ease-in top 2s;
+    transition: ease-in top 1s;
     
 }
 
