@@ -4,48 +4,62 @@ import arrowLeft from '../../../assets/svg/ChosenSlotBuyingPage__arrowLeft.svg'
 import arrowRight from '../../../assets/svg/ChosenSlotBuyingPage__arrowRight.svg'
 import addButton from '../../../assets/svg/ChosenSlotBuyingPage__AddButton.svg'
 import removeButton from '../../../assets/svg/ChosenSlotBuyingPage__RemoveButton.svg'
+import classnames from 'classnames';
 import './ChosenSlotBuyingPage.css'
 
 function ChosenSlotBuyingPage(props) {
 
     let [amount, setAmount] = useState(1)
+    let [chosenSet, setChosenSet] = useState('ОДЯГ')
+    let [chosenSize, setChosenSize] = useState('S')
     function changeAmountHandler(e) {
-        console.log(amount)
         if (e.target.alt === 'addButton' ) {
             if (amount < 101) setAmount(++amount)
         } else {
             if (amount > 1) setAmount(--amount)
         }
     }
+    function clickedSetActiveHandler(e) {
+        setChosenSet(e.target.innerText)
+    }
+    function clickedSizeActiveHandler(e) {
+        setChosenSize(e.target.innerText)
+    }
     return (
         <div className='chosenSlotBuyingPageContainer'>
-            <div className='chosenSlotBuyingPageTitle'>
+            <div>
                 <p className='chosenSlotBuyingPageTitleFirstString'>КОСТЮМ</p>
                 <p className='chosenSlotBuyingPageTitleSecondString'>З НІЖНОГО ШИФОНУ</p>
             </div>
             <div className='tableOfSettings'>
-                <span className='tableOfSettingsEachSet'>ОДЯГ</span>
-                <span className='tableOfSettingsEachSet'>СКЛАД</span>
-                <span className='tableOfSettingsEachSet'>ТАБЛИЦЯ РОЗМІРІВ</span>
+                <span onClick={(e) => clickedSetActiveHandler(e)} 
+                      className={classnames('tableOfSettingsEachSet', {'active': chosenSet === 'ОДЯГ'})}>ОДЯГ</span>
+                <span onClick={(e) => clickedSetActiveHandler(e)} 
+                      className={classnames('tableOfSettingsEachSet', {'active': chosenSet === 'СКЛАД'})}>СКЛАД</span>
+                <span onClick={(e) => clickedSetActiveHandler(e)} 
+                      className={classnames('tableOfSettingsEachSet', {'active': chosenSet === 'ТАБЛИЦЯ РОЗМІРІВ'})}>ТАБЛИЦЯ РОЗМІРІВ</span>
             </div>
             <div className='rowOfSizeSettings'>
                 <span className='rowOfSizeSettingsTitle'>РОЗМІР</span>
                 <div className='rowOfSizeSettingsSizeVariables'>
-                    <span>S</span>
-                    <span>M</span>
-                    <span>L</span>
+                    <span onClick={(e) => clickedSizeActiveHandler(e)} 
+                          className={classnames({'activeSize': chosenSize === 'S'})}>S</span>
+                    <span onClick={(e) => clickedSizeActiveHandler(e)} 
+                          className={classnames({'activeSize': chosenSize === 'M'})}>M</span>
+                    <span onClick={(e) => clickedSizeActiveHandler(e)} 
+                          className={classnames({'activeSize': chosenSize === 'L'})}>L</span>
                 </div>
             </div>
             <div className='rowOfColorSettings'>
                 <span className='rowOfColorSettingsTitle'>КОЛІР</span>
                 <div className='rowOfColorSettingsToggler'>
-                    <img src={arrowLeft} alt='arrowLeft' className='rowOfColorSettingsTitleEachArrow'></img>
+                    <img src={arrowLeft} alt='arrowLeft'></img>
                     <span className='rowOfColorSettingsTogglerText'>ГРАДАЦІЯ БЛАКИТНОГО І РОЖЕВОГО</span>
-                    <img src={arrowRight} alt='arrowRight' className='rowOfColorSettingsTitleEachArrow'></img>
+                    <img src={arrowRight} alt='arrowRight'></img>
                 </div>
                 
             </div>
-            <div className='rowOfAmountSettings'>
+            <div>
                 <span className='rowOfAmountSettingsTitle'>КІЛЬКІСТЬ</span>
                 <div className='rowOfAmountSettingsAmountToggler'>
                     <img src={addButton} alt='addButton' onClick={(e) => {changeAmountHandler(e)}}></img>
