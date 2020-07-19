@@ -17,7 +17,8 @@ class ChosenSlotMaker extends React.Component {
     
     
     render() {
-        const chosenSlotWantButtonClickedHandler = () => {
+        const chosenSlotWantButtonClickedHandler = (e) => {
+            
             document.getElementById(`${this.props.id}Img`).style.width = '35%';
             document.getElementById(`${this.props.id}Img`).style.left = '0'
             document.getElementById(`${this.props.id}Img`).style.top = 'unset'

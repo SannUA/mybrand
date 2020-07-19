@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import './Footer.css';
-import FooterHomePic from './FooterPics/FooterHomePic';
-import FooterSearchingPic from './FooterPics/FooterSearchingPic';
-import FooterBasketPic from './FooterPics/FooterBasketPic';
-import FooterFavoritePic from './FooterPics/FooterFavoritePic';
-import FooterAccountPic from './FooterPics/FooterAccountPic';
+import FooterPic from './FooterPics/FooterPic';
+import {ReactComponent as HomeLogo} from '../../assets/svg/Footer__home__pic.svg';
+import {ReactComponent as SearchLogo} from '../../assets/svg/Footer__searching__pic.svg';
+import {ReactComponent as BasketLogo} from '../../assets/svg/Footer__basket__pic.svg';
+import {ReactComponent as FavoriteLogo} from '../../assets/svg/Footer__favorite__pic.svg';
+import {ReactComponent as AccountLogo} from '../../assets/svg/Footer__account__pic.svg';
 
 
 function Footer(props) {
@@ -14,11 +15,27 @@ function Footer(props) {
     return (
         <div className='footer' id='footer'>
             <div className='picContainer'>
-              <Link to='/'><FooterHomePic activeFooterButton = {props.activeFooterIcon}/></Link> 
-              <Link to='/searching'><FooterSearchingPic activeFooterButton = {props.activeFooterIcon}/></Link>
-              <FooterBasketPic activeFooterButton = {props.activeFooterIcon}/>
-              <FooterFavoritePic activeFooterButton = {props.activeFooterIcon}/>
-              <FooterAccountPic activeFooterButton = {props.activeFooterIcon}/>
+            <Link to='/'><FooterPic src={HomeLogo} 
+                           title='ГЛАВНАЯ' 
+                           clickedFooterIcon={props.clickedFooterIcon} 
+                           activeFooterButton={props.activeFooterIcon}/></Link>
+            <Link to='/search'><FooterPic src={SearchLogo} 
+                           title='ПОИСК' 
+                           clickedFooterIcon={props.clickedFooterIcon} 
+                           activeFooterButton={props.activeFooterIcon}/></Link>
+                <FooterPic src={BasketLogo} 
+                           title='КОРЗИНА' 
+                           clickedFooterIcon={props.clickedFooterIcon} 
+                           activeFooterButton={props.activeFooterIcon}/>
+                <FooterPic src={FavoriteLogo} 
+                           title='ИЗБРАННОЕ' 
+                           clickedFooterIcon={props.clickedFooterIcon} 
+                           activeFooterButton={props.activeFooterIcon}/>
+                <FooterPic src={AccountLogo} 
+                           title='АККАУНТ' 
+                           clickedFooterIcon={props.clickedFooterIcon} 
+                           activeFooterButton={props.activeFooterIcon}/>
+              
             </div>
             
         </div>

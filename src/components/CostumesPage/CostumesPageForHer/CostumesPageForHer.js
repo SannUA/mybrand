@@ -48,7 +48,7 @@ class CostumesPageForHer extends React.Component {
                              onClick={() => this.setState({chosenItemId: null})}
                              className='headerElementArrowBach'/>
         } else {
-            arrowBack = <Link to='/searching'>
+            arrowBack = <Link to='/search'>
                             <img src={headerElementArrowBack} 
                                  alt='headerElementArrowBack'
                                  className='headerElementArrowBach'/>
@@ -56,7 +56,7 @@ class CostumesPageForHer extends React.Component {
         }
         return (
             <div>
-                <div className='fixedHeaderBox' style={{width: `${document.documentElement.clientWidth}px`}}>
+                <div className='fixedHeaderBox' >
                  {arrowBack}
                 <img src={headerElementFilter} alt='headerElementFilter' className='headerElementFilter'/>
                 </div>

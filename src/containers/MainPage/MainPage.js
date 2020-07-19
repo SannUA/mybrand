@@ -6,97 +6,44 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainMenu from '../../components/MainMenu/MainMenu';
 import SearchingPage from '../../components/SearchingPage/SearchingPage'
-import CostumesPage from '../../components/CostumesPage/CostumesPageForHer/CostumesPageForHer';
-import imgHomePageUrl from '../../assets/svg/IMG_main__page.svg'
-import imgSearchingPageUrl from '../../assets/svg/Background__image__gray.svg'
+import CostumesPageForHer from '../../components/CostumesPage/CostumesPageForHer/CostumesPageForHer';
+
 
 class MainPage extends React.Component {
     state = {
         backgroundImg: 0,
-        activeFooterButton: 'home'
+        activeFooterButton: 'ГЛАВНАЯ'
     }
-
-
-
-    FooterOnClickHandler(e) {
-        if (e.target.firstChild && e.target.nodeName !== 'SPAN') {
-            console.log(e.target.firstChild.alt)
-            if (e.target.firstChild.alt === 'home') {
-                this.setState({
-                    backgroundImg: 0,
-                    activeFooterButton: 'home'
-                })
-            } else if (e.target.firstChild.alt === 'searching' ||
-                       e.target.firstChild.alt === 'basket' ||
-                       e.target.firstChild.alt === 'favorite' || 
-                       e.target.firstChild.alt === 'account'){
-                this.setState({
-                    backgroundImg: 1,
-                    activeFooterButton: e.target.firstChild.alt
-                })
-            }
-        } else {
-            switch (true) {
-                case e.target.innerText === 'ГЛАВНАЯ' || 
-                     e.target.alt === 'home':
-                     this.setState({
-                        backgroundImg: 0,
-                        activeFooterButton: 'home'
-                    })
-                    break;
-                case e.target.innerText === 'ПОИСК' || 
-                     e.target.alt === 'searching':
-                    this.setState({
-                        backgroundImg: 1,
-                        activeFooterButton: 'searching'
-                    })
-                    break;
-                case e.target.innerText === 'КОРЗИНА' || 
-                    e.target.alt === 'basket':
-                   this.setState({
-                       backgroundImg: 1,
-                       activeFooterButton: 'basket'
-                   })
-                   break;
-                case e.target.innerText === 'ИЗБРАННОЕ' || 
-                    e.target.alt === 'favorite':
-                   this.setState({
-                       backgroundImg: 1,
-                       activeFooterButton: 'favorite'
-                   })
-                   break;
-                case e.target.innerText === 'АККАУНТ' || 
-                   e.target.alt === 'account':
-                  this.setState({
-                      backgroundImg: 1,
-                      activeFooterButton: 'account'
-                  })
-                  break;
-                    default: return
-            }
-        }
-
-    }
-    
 
     render(){
-        let backgroundImage = document.getElementById('root')
-        if (this.state.backgroundImg === 0) {
-            backgroundImage.style.backgroundImage = 'url('+ imgHomePageUrl + ')'
-        } else {
-            backgroundImage.style.backgroundImage = 'url('+ imgSearchingPageUrl + ')'
+        const clickedFooterIcon = (iconName) => {
+            this.setState({
+                activeFooterButton: iconName
+            })
+            if (iconName === 'ГЛАВНАЯ'){
+                this.setState({
+                    backgroundImg: 0
+                })
+            } else {
+                this.setState({
+                    backgroundImg: 1
+                })
+            }
         }
+        let background;
+        if (this.state.backgroundImg === 0) {background = 'backgroundMainPage'}
+        else {background = 'backgroundGrayImage'}
+
         return(
-            <div className={backgroundImage}>
+            <div className={background}>
             <Header />
             <Switch>
             <Route exact path='/' component={MainMenu}/>
-            <Route path='/searching' component={SearchingPage}/>
-            <Route path='/searching_costumes' component={CostumesPage} />
+            <Route path='/search' component={SearchingPage}/>
+            <Route path='/searching_costumes_forHer' component={CostumesPageForHer} />
             </Switch>
-            <div onClickCapture={(e) => this.FooterOnClickHandler(e)}>
-                <Footer activeFooterIcon={this.state.activeFooterButton}/>
-            </div>
+            <Footer clickedFooterIcon={clickedFooterIcon} activeFooterIcon={this.state.activeFooterButton}/>
+
             
         </div>
         )

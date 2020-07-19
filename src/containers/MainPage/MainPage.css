@@ -6,6 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
+    overflow: scroll;
   }
   
   .backgroundGrayImage {
@@ -15,4 +16,5 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
+    overflow: scroll;
   }

@@ -7,11 +7,13 @@
     background: linear-gradient(179.73deg, rgba(196, 196, 196, 0) 0.83%, #DCE0E0 99.16%);
 }
 
+
+
 .each {
     display: inline-block;
     width: 20%;
     text-align: center;
-    font-family: Franklin Gothic Medium Cond;
+    font-family: 'Franklin Gothic Medium Cond';
     font-style: normal;
     font-weight: normal;
     font-size: 8px;
@@ -21,7 +23,15 @@
     margin-bottom: 3.5%;
     color: #6F6F6F;
 }
-
+.some path{
+    stroke: rgb(255, 88, 139);
+}
+.some circle{
+    stroke: rgb(255, 88, 139);
+}
+.textActive {
+    color: rgb(255, 88, 139);
+}
 .picContainer {
     position: absolute;
     width: 92%;

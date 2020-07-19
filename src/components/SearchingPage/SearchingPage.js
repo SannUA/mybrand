@@ -4,8 +4,7 @@ import searchingPic from '../../assets/svg/SearchingPage__lupa.svg';
 import centerLine from '../../assets/svg/SearchingPage__centerLine.svg'
 
 import './SearchingPage.css'
-import ListOfItemsForHer from './ListOfItemsForHer';
-import ListOfItemsForHim from './ListOfItemsForHim';
+import ListOfItems from './ListOfItems'
 
 
 class SearchingPage extends React.Component {
@@ -46,9 +45,9 @@ class SearchingPage extends React.Component {
     render(){
         let content = <img src={centerLine} alt='centerLine' className='centerLine'/>
         if (this.state.chosenSex === 0){
-            content = <ListOfItemsForHer />
+            content = <ListOfItems forWho='forHer' />
         } else if (this.state.chosenSex === 1) {
-            content = <ListOfItemsForHim />
+            content = <ListOfItems forWho='forHim' />
         }
         return (
         <div>
