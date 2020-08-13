@@ -1,6 +1,14 @@
 import React from 'react';
 
 import costumeForHer from '../../../assets/svg/Costumes__ForHer__Pos1.svg';
+import dressForHer from '../../../assets/png/dress_ForHer.png';
+import t_shirtsForHer from '../../../assets/png/t-shirt_ForHer.png';
+import underwearForHer from '../../../assets/png/underwear_ForHer.png';
+import noveltyForHer from '../../../assets/png/novelty_ForHer.png';
+import costumeForHim from '../../../assets/png/costume_ForHim.png';
+import t_shirtsForHim from '../../../assets/png/t-shirt_ForHim.png';
+import underwearForHim from '../../../assets/png/underwear_ForHim.png';
+import noveltyForHim from '../../../assets/png/novelty_ForHim.png';
 import addToFavoriteButton from '../../../assets/svg/AddToFavoriteButton.svg';
 
 import arrowRight from '../../../assets/svg/Arrow__right.svg'
@@ -17,6 +25,38 @@ class ChosenSlotMaker extends React.Component {
     
     
     render() {
+        let chosenSex = this.props.pathname.slice(-6)
+        console.log(chosenSex)
+        let chosenType = this.props.pathname.slice(11).slice(0, -7)
+        let chosenTypeImg
+        if (chosenSex === 'forHer') {
+            switch (chosenType) {
+                case 'dresses': chosenTypeImg = dressForHer
+                    break;
+                case 't-shirts': chosenTypeImg = t_shirtsForHer
+                    break;
+                case 'underwear': chosenTypeImg = underwearForHer
+                    break;
+                case 'novelty': chosenTypeImg = noveltyForHer
+                    break;
+            
+                default: chosenTypeImg = costumeForHer
+                    break;
+            }
+        } else {
+            switch (chosenType) {
+                case 't-shirts': chosenTypeImg = t_shirtsForHim
+                    break;
+                case 'underwear': chosenTypeImg = underwearForHim
+                    break;
+                case 'novelty': chosenTypeImg = noveltyForHim
+                    break;
+            
+                default: chosenTypeImg = costumeForHim
+                    break;
+                }
+        }
+        
         const chosenSlotWantButtonClickedHandler = (e) => {
             
             document.getElementById(`${this.props.id}Img`).style.width = '35%';
@@ -90,7 +130,7 @@ class ChosenSlotMaker extends React.Component {
                     
                     {content}
                     
-                        <img src={costumeForHer} alt='costumeForHer' 
+                        <img src={chosenTypeImg} alt='costumeForHer' 
                                                  className={positionOfImg}
                                                  id={`${this.props.id}Img`}
                                                  style={{top: this.props.coords.top + 'px', left: this.props.coords.left + 'px'}}/>

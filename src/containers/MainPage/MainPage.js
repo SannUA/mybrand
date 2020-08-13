@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {Switch, Route} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import './MainPage.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainMenu from '../../components/MainMenu/MainMenu';
 import SearchingPage from '../../components/SearchingPage/SearchingPage'
-import CostumesPageForHer from '../../components/CostumesPage/CostumesPageForHer/CostumesPageForHer';
+import PageWithItems from '../../components/CostumesPage/PageWithItems/PageWithItems';
 
 
 class MainPage extends React.Component {
@@ -34,13 +34,15 @@ class MainPage extends React.Component {
         if (this.state.backgroundImg === 0) {background = 'backgroundMainPage'}
         else {background = 'backgroundGrayImage'}
 
+
         return(
             <div className={background}>
             <Header />
             <Switch>
-            <Route exact path='/' component={MainMenu}/>
+            <Route exact path='/home' component={MainMenu}/>
             <Route path='/search' component={SearchingPage}/>
-            <Route path='/searching_costumes_forHer' component={CostumesPageForHer} />
+            <Route path='/searching' component={PageWithItems}/>
+            
             </Switch>
             <Footer clickedFooterIcon={clickedFooterIcon} activeFooterIcon={this.state.activeFooterButton}/>
 

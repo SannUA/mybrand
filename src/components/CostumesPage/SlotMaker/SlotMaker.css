@@ -77,6 +77,12 @@
     letter-spacing: 0.23em;
     color: #FFFFFF;
     text-align: center;
+    cursor: pointer;
+}
+
+.wantButton:hover:active {
+    background: lightblue;
+    color: lightcoral
 }
 
 .addToFavoriteButtonText {
