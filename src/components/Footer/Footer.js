@@ -15,7 +15,7 @@ function Footer(props) {
     return (
         <div className='footer' id='footer'>
             <div className='picContainer'>
-            <Link to='/home'><FooterPic src={HomeLogo} 
+            <Link to='/'><FooterPic src={HomeLogo} 
                            title='ГЛАВНАЯ' 
                            clickedFooterIcon={props.clickedFooterIcon} 
                            activeFooterButton={props.activeFooterIcon}/></Link>

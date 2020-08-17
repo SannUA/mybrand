@@ -39,7 +39,7 @@ class MainPage extends React.Component {
             <div className={background}>
             <Header />
             <Switch>
-            <Route exact path='/home' component={MainMenu}/>
+            <Route exact path='/' component={MainMenu}/>
             <Route path='/search' component={SearchingPage}/>
             <Route path='/searching' component={PageWithItems}/>
             
